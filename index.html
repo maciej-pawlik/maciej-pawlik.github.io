@@ -1,37 +1,31 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maciej Pawlik — Disaster Scientist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a08;
-      --surface: #111110;
-      --surface2: #1a1a17;
-      --border: #2a2a25;
-      --text: #e8e4d9;
-      --text-muted: #7a7669;
-      --text-dim: #4a4840;
-      --accent: #c8a96e;
-      --accent-dim: #8a7048;
-      --green: #5c7a4e;
-      --green-bright: #7fa86e;
-      --serif: Palatino, 'Palatino linotype', serif;
-      --mono: 'Courier New', Menlo, Monaco, monospace;
-      --sans: -apple-system, BlinkMacSystemFont, 'Palatino', Arial, sans-serif;
+      --bg: #0a0a08; --surface: #111110; --surface2: #1a1a17; --border: #2a2a25;
+      --text: #e8e4d9; --text-muted: #9a9690; --text-dim: #5a5850;
+      --accent: #c8a96e; --accent-dim: #8a7048; --green: #5c7a4e; --green-bright: #7fa86e;
+      --serif: 'Playfair Display', Palatino, serif;
+      --body: 'Source Serif 4', Georgia, serif;
+      --mono: 'DM Sans', sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.7; overflow-x: hidden; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); line-height: 1.7; overflow-x: hidden; }
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 3rem; background: rgba(10,10,8,0.97); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: var(--sans); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
+    .nav-logo { font-family: var(--mono); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
     .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem 4rem 6rem; position: relative; overflow: hidden; background: linear-gradient(135deg, #0d1209 0%, #0a0a08 50%, #100e08 100%); }
-    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 40%, rgba(92,122,78,0.12) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(200,169,110,0.06) 0%, transparent 50%); pointer-events: none; }
-    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .hero-bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 70% 40%, rgba(92,122,78,0.12) 0%, transparent 55%), radial-gradient(ellipse at 20% 70%, rgba(200,169,110,0.06) 0%, transparent 50%); }
+    .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px); background-size: 60px 60px; }
     .hero-content { position: relative; z-index: 2; max-width: 800px; }
     .hero-eyebrow { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
     .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--green-bright); }
@@ -45,6 +39,8 @@
     .btn-ghost { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); background: transparent; padding: 0.9rem 2rem; text-decoration: none; transition: all 0.2s; border: 1px solid var(--border); display: inline-block; }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
     .hero-coords { position: absolute; bottom: 3rem; right: 4rem; font-family: var(--mono); font-size: 0.62rem; color: var(--text-dim); letter-spacing: 0.08em; line-height: 1.9; text-align: right; z-index: 2; }
+    .hero-photo { position: absolute; top: 50%; right: 4rem; transform: translateY(-50%); width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--accent); z-index: 2; }
+    .hero-photo-placeholder { position: absolute; top: 50%; right: 4rem; transform: translateY(-50%); width: 200px; height: 200px; border-radius: 50%; border: 2px dashed var(--accent-dim); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); z-index: 2; text-align: center; padding: 1rem; }
     .stats-bar { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); }
     .stat-item { padding: 2.5rem 3rem; border-right: 1px solid var(--border); transition: background 0.2s; }
     .stat-item:hover { background: var(--surface2); }
@@ -59,7 +55,6 @@
     h2.section-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.1; margin-bottom: 1rem; color: var(--text); }
     h2.section-title em { font-style: italic; color: var(--accent); }
     .section-intro { font-size: 1.05rem; color: var(--text-muted); max-width: 46rem; line-height: 1.75; margin-bottom: 3.5rem; }
-    #about { border-bottom: 1px solid var(--border); }
     .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start; }
     .about-bio { font-size: 1.05rem; line-height: 1.85; color: var(--text); }
     .about-bio p + p { margin-top: 1.2rem; }
@@ -73,7 +68,7 @@
     .expertise-card { background: var(--surface); padding: 1.8rem; transition: background 0.2s; }
     .expertise-card:hover { background: var(--surface2); }
     .expertise-icon { font-size: 1.3rem; margin-bottom: 0.8rem; display: block; }
-    .expertise-card h3 { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .expertise-card h3 { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
     .expertise-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
     .fieldwork-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(3, 1fr); }
     .fieldwork-location { padding: 3rem 4rem; border-right: 1px solid var(--border); position: relative; }
@@ -82,30 +77,47 @@
     .fieldwork-city { font-family: var(--serif); font-size: 2.2rem; color: var(--text); margin-bottom: 0.2rem; }
     .fieldwork-country { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .fieldwork-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
-    .research-header { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: end; }
+    .edu-item { display: grid; grid-template-columns: 8rem 1fr; gap: 2rem; padding: 1.8rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+    .edu-year { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); padding-top: 0.25rem; line-height: 1.6; }
+    .edu-degree { font-family: var(--serif); font-size: 1.1rem; color: var(--text); margin-bottom: 0.2rem; }
+    .edu-inst { font-family: var(--mono); font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+    .edu-detail { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); line-height: 1.6; }
     .publications-list { display: flex; flex-direction: column; }
     .pub-item { padding: 1.8rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 5rem 1fr auto; gap: 2rem; align-items: start; }
-    .pub-year { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); padding-top: 0.2rem; white-space: nowrap; }
+    .pub-year { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); padding-top: 0.2rem; }
     .pub-title { font-size: 1.05rem; color: var(--text); line-height: 1.45; margin-bottom: 0.35rem; }
+    .pub-title a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .pub-title a:hover { color: var(--accent); }
     .pub-journal { font-family: var(--mono); font-size: 0.62rem; color: var(--text-muted); }
     .pub-badge { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border: 1px solid; white-space: nowrap; align-self: center; }
     .badge-published { color: var(--green-bright); border-color: var(--green); }
     .badge-review { color: var(--accent); border-color: var(--accent-dim); }
-    .grants-section { margin-top: 4rem; }
     .grants-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 1.5rem; }
     .grant-card { background: var(--bg); padding: 2rem; transition: background 0.2s; }
     .grant-card:hover { background: var(--surface2); }
     .grant-funder { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
     .grant-title { font-size: 1rem; color: var(--text); line-height: 1.4; margin-bottom: 0.5rem; }
     .grant-detail { font-family: var(--mono); font-size: 0.62rem; color: var(--text-muted); }
-    #services { border-bottom: 1px solid var(--border); }
+    .membership-list { display: flex; flex-direction: column; margin-top: 1rem; }
+    .membership-item { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .membership-org { font-size: 0.95rem; color: var(--text); }
+    .membership-role { font-family: var(--mono); font-size: 0.68rem; color: var(--text-muted); text-align: right; }
+    .teaching-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
+    .teaching-item { display: grid; grid-template-columns: 6rem 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+    .teaching-year { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); padding-top: 0.2rem; }
+    .teaching-course { font-size: 1rem; color: var(--text); margin-bottom: 0.2rem; line-height: 1.4; }
+    .teaching-meta { font-family: var(--mono); font-size: 0.68rem; color: var(--text-muted); }
+    .info-box { background: var(--surface2); border-left: 2px solid var(--green); padding: 1.6rem; margin-bottom: 1.2rem; }
+    .info-box h4 { font-family: var(--mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 0.6rem; }
+    .info-box p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+    .info-box a { color: var(--accent); }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .service-card { background: var(--surface); border: 1px solid var(--border); padding: 2.2rem; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
     .service-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
     .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green), var(--accent)); transform: scaleX(0); transition: transform 0.3s; }
     .service-card:hover::after { transform: scaleX(1); }
     .service-number { font-family: var(--serif); font-size: 3rem; color: var(--text-dim); line-height: 1; margin-bottom: 1.2rem; }
-    .service-card h3 { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); margin-bottom: 0.9rem; }
+    .service-card h3 { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); margin-bottom: 0.9rem; }
     .service-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
     .service-tags { margin-top: 1.3rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .tag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); border: 1px solid var(--border); padding: 0.18rem 0.5rem; }
@@ -115,13 +127,12 @@
     .talk-meta { font-family: var(--mono); font-size: 0.6rem; color: var(--text-muted); }
     .talk-type { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.65rem; border: 1px solid var(--border); color: var(--text-dim); white-space: nowrap; }
     .outreach-card { background: var(--bg); border: 1px solid var(--border); padding: 1.8rem; margin-bottom: 1.2rem; }
-    .outreach-card h4 { font-family: var(--sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
+    .outreach-card h4 { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
     .outreach-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
-    #blog { border-bottom: 1px solid var(--border); }
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .blog-card { border: 1px solid var(--border); transition: border-color 0.2s; cursor: pointer; }
     .blog-card:hover { border-color: var(--accent-dim); }
-    .blog-card-img { height: 140px; background: var(--surface2); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; opacity: 0.4; }
+    .blog-card-img { height: 140px; background: var(--surface2); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
     .blog-card-body { padding: 1.6rem; background: var(--surface); }
     .blog-category { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 0.7rem; }
     .blog-card h3 { font-size: 1.05rem; color: var(--text); line-height: 1.4; margin-bottom: 0.7rem; }
@@ -139,7 +150,7 @@
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
     .form-group label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
-    .form-group input, .form-group textarea, .form-group select { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 0.75rem 1rem; font-family: var(--serif); font-size: 0.95rem; outline: none; transition: border-color 0.2s; width: 100%; }
+    .form-group input, .form-group textarea, .form-group select { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 0.75rem 1rem; font-family: var(--body); font-size: 0.95rem; outline: none; transition: border-color 0.2s; width: 100%; }
     .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent-dim); }
     .form-group textarea { resize: vertical; min-height: 110px; }
     .form-group select option { background: var(--surface); }
@@ -149,49 +160,33 @@
     .footer-left { font-family: var(--mono); font-size: 0.62rem; color: var(--text-dim); line-height: 1.8; }
     .footer-left strong { color: var(--accent); font-weight: 400; }
     .footer-right { font-family: var(--mono); font-size: 0.58rem; color: var(--text-dim); }
-    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { padding: 6rem 1.5rem 4rem; }
-      .hero-coords { display: none; }
+      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+      .hero { padding: 6rem 1.5rem 4rem; } .hero-coords, .hero-photo, .hero-photo-placeholder { display: none; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
       .section, .section-full { padding: 4rem 1.5rem; }
-      .about-grid, .research-header, .contact-grid, .media-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-grid, .teaching-grid, .contact-grid, .media-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .expertise-grid { grid-template-columns: 1fr; }
       .fieldwork-strip { grid-template-columns: 1fr; }
       .fieldwork-location { border-right: none; border-bottom: 1px solid var(--border); }
       .grants-grid, .services-grid, .blog-grid { grid-template-columns: 1fr; }
-      .pub-item { grid-template-columns: 4rem 1fr; }
-      .pub-badge { display: none; }
+      .pub-item { grid-template-columns: 4rem 1fr; } .pub-badge { display: none; }
+      .edu-item, .teaching-item { grid-template-columns: 5rem 1fr; }
+      .membership-item { grid-template-columns: 1fr; } .membership-role { text-align: left; }
       .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
 </head>
 <body>
-
-.hero-photo {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: right;
-  border: 2px solid var(--accent);
-  margin-bottom: 2rem;
-  display: block;
-}
-
-<div class="hero-content">
-  <img src="ProfilePic - WEBSITE.jpeg" alt="Maciej Pawlik" class="hero-photo" />  <!-- ADD THIS -->
-  <div class="hero-eyebrow">Disaster Scientist &amp; Researcher</div>
-  
   <nav>
     <a href="#home" class="nav-logo">M. Pawlik</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#research">Research</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#memberships">Memberships</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#media">Media</a></li>
       <li><a href="#blog">Writing</a></li>
@@ -212,26 +207,22 @@
         <a href="#contact" class="btn-ghost">Work Together</a>
       </div>
     </div>
-    <div class="hero-coords">
-      London, United Kingdom<br>
-      Dept. of Risk &amp; Disaster Reduction<br>
-      Institute of Education<br>
-      Fieldwork: Glasgow · Kyoto
-    </div>
+    <div class="hero-photo-placeholder">ProfilePic - WEBSITE.jpeg</div>
+    <div class="hero-coords">London, United Kingdom<br>Dept. of Risk &amp; Disaster Reduction<br><br>Fieldwork: Glasgow · Kyoto</div>
   </section>
 
   <div class="stats-bar">
-    <div class="stat-item fade-in"><div class="stat-number">4</div><div class="stat-label">Research Papers</div></div>
-    <div class="stat-item fade-in" style="transition-delay:.1s"><div class="stat-number">2</div><div class="stat-label">Fieldwork Countries</div></div>
-    <div class="stat-item fade-in" style="transition-delay:.2s"><div class="stat-number">3</div><div class="stat-label">Research Grants</div></div>
-    <div class="stat-item fade-in" style="transition-delay:.3s"><div class="stat-number">UCL</div><div class="stat-label">Dept. Risk &amp; Disaster Reduction AND Institute of Education</div></div>
+    <div class="stat-item"><div class="stat-number">4</div><div class="stat-label">Research Papers</div></div>
+    <div class="stat-item"><div class="stat-number">2</div><div class="stat-label">Fieldwork Countries</div></div>
+    <div class="stat-item"><div class="stat-number">3</div><div class="stat-label">Research Grants</div></div>
+    <div class="stat-item"><div class="stat-number">UCL</div><div class="stat-label">Dept. Risk &amp; Disaster Reduction</div></div>
   </div>
 
   <section id="about" class="section">
     <div class="section-label">01 — About</div>
     <h2 class="section-title">Rethinking resilience<br>through <em>living systems</em></h2>
     <div class="about-grid">
-      <div class="about-left fade-in">
+      <div>
         <div class="about-bio">
           <p>I am a part-time doctoral researcher at <strong>UCL's Department of Risk and Disaster Reduction</strong>, working at the intersection of ecology, urban planning, and disaster science. My research asks a deceptively simple question: what can nature teach us about surviving crisis?</p>
           <p>My fieldwork takes me between <strong>Glasgow and Kyoto</strong> — two cities with radically different relationships to urban nature — exploring how botanical gardens, green corridors, and living infrastructure shape community resilience before, during, and after disaster.</p>
@@ -245,10 +236,10 @@
           <div class="affil-item"><div class="affil-dot"></div><div class="affil-text"><strong>Green Party of England &amp; Wales</strong>Former Local Candidate · North Acton</div></div>
         </div>
       </div>
-      <div class="about-right fade-in" style="transition-delay:.15s">
+      <div>
         <div class="expertise-grid">
           <div class="expertise-card"><span class="expertise-icon">🌿</span><h3>Nature-Based Solutions</h3><p>Urban green infrastructure and living architecture as tools for disaster risk reduction and climate adaptation.</p></div>
-          <div class="expertise-card"><span class="expertise-icon">🏙️</span><h3>Urban Resilience</h3><p>How cities — their communities, governance, and spatial arrangements — absorb and recover from acute shocks.</p></div>
+          <div class="expertise-card"><span class="expertise-icon">🏙️</span><h3>Urban Resilience</h3><p>How cities absorb and recover from acute shocks through community, governance, and spatial arrangements.</p></div>
           <div class="expertise-card"><span class="expertise-icon">🔬</span><h3>Creative Methods</h3><p>Ethnography, participatory design, posthumanist theory, and narrative approaches to disaster research.</p></div>
           <div class="expertise-card"><span class="expertise-icon">📚</span><h3>Disaster Education</h3><p>School outreach, public engagement, and curriculum design to build civic preparedness and environmental literacy.</p></div>
           <div class="expertise-card"><span class="expertise-icon">🌏</span><h3>Comparative Fieldwork</h3><p>Cross-cultural research in UK and Japan; fluency navigating Western and East Asian institutional contexts.</p></div>
@@ -258,62 +249,103 @@
     </div>
   </section>
 
-  <div class="fieldwork-strip fade-in">
+  <div class="fieldwork-strip">
     <div class="fieldwork-location"><div class="fieldwork-city">Glasgow</div><div class="fieldwork-country">Scotland, UK</div><p class="fieldwork-desc">Urban green corridors, post-industrial ecological recovery, and community-led nature-based resilience in Scotland's largest city.</p></div>
     <div class="fieldwork-location"><div class="fieldwork-city">Kyoto</div><div class="fieldwork-country">Japan</div><p class="fieldwork-desc">Satoyama landscapes, traditional ecological knowledge, and the cultural dimensions of disaster preparedness in historic Japan.</p></div>
     <div class="fieldwork-location"><div class="fieldwork-city">London</div><div class="fieldwork-country">England, UK</div><p class="fieldwork-desc">Botanical gardens as contested urban ecologies; ecological posthumanism and the Third Function of urban nature.</p></div>
   </div>
 
+  <section id="education" class="section">
+    <div class="section-label">02 — Education</div>
+    <h2 class="section-title">Academic <em>formation</em></h2>
+    <div style="margin-top:1rem">
+      <div class="edu-item"><div class="edu-year">2022–<br>Present</div><div><div class="edu-degree">PhD, Risk &amp; Disaster Reduction</div><div class="edu-inst">University College London (UCL)</div><div class="edu-detail">Part-time doctoral research. Nature-based disaster resilience; comparative fieldwork in Glasgow and Kyoto. Expected 2027.</div></div></div>
+      <div class="edu-item"><div class="edu-year">Update</div><div><div class="edu-degree">MSc [Your degree]</div><div class="edu-inst">[Your institution]</div><div class="edu-detail">Update with your MSc details.</div></div></div>
+      <div class="edu-item"><div class="edu-year">Update</div><div><div class="edu-degree">BA [Your degree]</div><div class="edu-inst">[Your institution]</div><div class="edu-detail">Update with your undergraduate details.</div></div></div>
+    </div>
+  </section>
+
   <section id="research" class="section-full">
     <div class="section-inner">
-      <div class="research-header fade-in">
-        <div><div class="section-label">02 — Research &amp; Publications</div><h2 class="section-title">A body of work<br>at the <em>frontier</em></h2></div>
-        <p class="section-intro" style="margin-bottom:0">First-author, top-tier peer-reviewed publications spanning disaster risk reduction, human-nature interaction, nature-based solutions and disaster education.</p>
-      </div>
+      <div class="section-label">03 — Research &amp; Publications</div>
+      <h2 class="section-title">A body of work<br>at the <em>frontier</em></h2>
+      <p class="section-intro">First-author, peer-reviewed publications spanning disaster risk reduction, human–nature interaction, nature-based solutions, and disaster education.</p>
       <div class="publications-list">
-        <div class="pub-item fade-in"><div class="pub-year">2026</div><div><div class="pub-title">The Third Function: Ecological Posthumanism in London's Botanical Gardens</div><div class="pub-journal">People and Nature</div></div><div class="pub-badge badge-review">Under Review</div></div>
-        <div class="pub-item fade-in" style="transition-delay:.15s"><div class="pub-year">2025</div><div><div class="pub-title"><a href="https://doi.org/10.3390/su17135671" target="_blank" style="color: inherit; text-decoration: underline; ">Supporting Sustainable Development Through Early-Life DRR Learning Opportunities: UK School Insights</a></div><div class="pub-journal">Sustainability</div></div><div class="pub-badge badge-published">Published</div></div>
-        <div class="pub-item fade-in" style="transition-delay:.2s"><div class="pub-year">2025</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.ijdrr.2025.105180" target="_blank" style="color: inherit; text-decoration: underline; ">Agent-based Modelling for Flood Evacuation as Inclusive Disaster Risk Reduction: Pilot participatory action research with 11-and 12-year-old children from a Japanese school</a></div><div class="pub-journal">International Journal of Disaster Risk Reduction</div></div><div class="pub-badge badge-published">Published</div></div>
-        <div class="pub-item fade-in" style="transition-delay:.25s"><div class="pub-year">2024</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.ijdrr.2024.104472" target="_blank" style="color: inherit; text-decoration: underline; ">Proposing Thematic Mapping for Integrated Risk Communication: A study of British & Japanese perspectives in flood-prone communities</a></div><div class="pub-journal">International Journal of Disaster Risk Reduction</div></div><div class="pub-badge badge-published">Published</div></div>
+        <div class="pub-item"><div class="pub-year">2026</div><div><div class="pub-title">The Third Function: Ecological Posthumanism in London's Botanical Gardens</div><div class="pub-journal">People and Nature</div></div><div class="pub-badge badge-review">Under Review</div></div>
+        <div class="pub-item"><div class="pub-year">2025</div><div><div class="pub-title"><a href="https://doi.org/10.3390/su17135671" target="_blank">Supporting Sustainable Development Through Early-Life DRR Learning Opportunities: UK School Insights</a></div><div class="pub-journal">Sustainability</div></div><div class="pub-badge badge-published">Published</div></div>
+        <div class="pub-item"><div class="pub-year">2025</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.ijdrr.2025.105180" target="_blank">Agent-based Modelling for Flood Evacuation as Inclusive Disaster Risk Reduction: Pilot participatory action research with 11- and 12-year-old children from a Japanese school</a></div><div class="pub-journal">International Journal of Disaster Risk Reduction</div></div><div class="pub-badge badge-published">Published</div></div>
+        <div class="pub-item"><div class="pub-year">2024</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.ijdrr.2024.104472" target="_blank">Proposing Thematic Mapping for Integrated Risk Communication: A study of British &amp; Japanese perspectives in flood-prone communities</a></div><div class="pub-journal">International Journal of Disaster Risk Reduction</div></div><div class="pub-badge badge-published">Published</div></div>
       </div>
-      <div class="grants-section fade-in">
-        <div class="section-label" style="margin-bottom:1rem">02b — Grants &amp; Awards</div>
+      <div style="margin-top:4rem">
+        <div class="section-label" style="margin-bottom:1rem">03b — Grants &amp; Awards</div>
         <div class="grants-grid">
-          <div class="grant-card"><div class="grant-funder">Student Fieldwork Grant</div><div class="grant-title">British Association for International & Comparative Education</div><div class="grant-detail">£2,500 · 2025-2026</div></div>
-          <div class="grant-card"><div class="grant-funder">Standard Travel Grant</div><div class="grant-title">Great Britain Sasakawa Foundation</div><div class="grant-detail">£2,500 · 2025-2026</div></div>
-          <div class="grant-card"><div class="grant-funder">Impact Builder Grant</div><div class="grant-title">University of East London</div><div class="grant-detail">£50,000 · 2023-2024</div></div>
+          <div class="grant-card"><div class="grant-funder">Student Fieldwork Grant</div><div class="grant-title">British Association for International &amp; Comparative Education</div><div class="grant-detail">£2,500 · 2025–2026</div></div>
+          <div class="grant-card"><div class="grant-funder">Standard Travel Grant</div><div class="grant-title">Great Britain Sasakawa Foundation</div><div class="grant-detail">£2,500 · 2025–2026</div></div>
+          <div class="grant-card"><div class="grant-funder">Impact Builder Grant</div><div class="grant-title">University of East London</div><div class="grant-detail">£50,000 · 2023–2024</div></div>
         </div>
       </div>
     </div>
   </section>
 
+  <section id="teaching" class="section">
+    <div class="section-label">04 — Teaching</div>
+    <h2 class="section-title">Teaching &amp;<br><em>supervision</em></h2>
+    <div class="teaching-grid">
+      <div>
+        <div class="teaching-item"><div class="teaching-year">2024–25</div><div><div class="teaching-course">Disaster Risk Reduction: Theory and Practice</div><div class="teaching-meta">UCL · Guest Lecture · Postgraduate</div></div></div>
+        <div class="teaching-item"><div class="teaching-year">2023–24</div><div><div class="teaching-course">Urban Ecology and Environmental Planning</div><div class="teaching-meta">UCL · Seminar Tutor · Undergraduate</div></div></div>
+        <div class="teaching-item"><div class="teaching-year">2023</div><div><div class="teaching-course">Emergency Preparedness and Community Resilience</div><div class="teaching-meta">London Schools Outreach Programme · KS3–KS4</div></div></div>
+        <div class="teaching-item"><div class="teaching-year">2022–</div><div><div class="teaching-course">Nature Literacy and Environmental Awareness</div><div class="teaching-meta">London Schools Programme · Primary &amp; Secondary</div></div></div>
+      </div>
+      <div>
+        <div class="info-box"><h4>Teaching Philosophy</h4><p>I embed teaching within applied research rather than treating it as a separate institutional role. My goal is to equip students with both critical thinking and practical tools.</p></div>
+        <div class="info-box" style="border-color:var(--accent-dim)"><h4 style="color:var(--accent)">Supervision</h4><p>Available to co-supervise postgraduate dissertations in disaster risk reduction, urban ecology, and nature-based solutions. Please <a href="#contact">get in touch</a> to discuss.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="memberships" class="section-full">
+    <div class="section-inner">
+      <div class="section-label">05 — Memberships &amp; Affiliations</div>
+      <h2 class="section-title">Professional <em>community</em></h2>
+      <div class="membership-list">
+        <div class="membership-item"><div class="membership-org">Royal Geographical Society</div><div class="membership-role">Associate Fellow (AFRGS)</div></div>
+        <div class="membership-item"><div class="membership-org">UCL Dept. of Risk &amp; Disaster Reduction</div><div class="membership-role">Doctoral Researcher</div></div>
+        <div class="membership-item"><div class="membership-org">Royal Holloway, University of London</div><div class="membership-role">Higher Education Professional</div></div>
+        <div class="membership-item"><div class="membership-org">British Association for International &amp; Comparative Education</div><div class="membership-role">Member · Grant Recipient 2025–26</div></div>
+        <div class="membership-item"><div class="membership-org">Great Britain Sasakawa Foundation</div><div class="membership-role">Travel Grant Recipient 2025–26</div></div>
+        <div class="membership-item"><div class="membership-org">Green Party of England &amp; Wales</div><div class="membership-role">Former Local Candidate · North Acton</div></div>
+      </div>
+    </div>
+  </section>
+
   <section id="services" class="section">
-    <div class="section-label">03 — Services</div>
+    <div class="section-label">06 — Services</div>
     <h2 class="section-title">How I can<br><em>help you</em></h2>
     <p class="section-intro">Research, mentoring, and educational services for individuals and organisations working at the intersection of environment, risk, and resilience.</p>
     <div class="services-grid">
-      <div class="service-card fade-in"><div class="service-number">01</div><h3>Research Consultancy</h3><p>Bespoke qualitative and mixed-methods research in disaster risk reduction, urban ecology, and nature-based solutions.</p><div class="service-tags"><span class="tag">Literature Reviews</span><span class="tag">Fieldwork Design</span><span class="tag">Policy Briefs</span></div></div>
-      <div class="service-card fade-in" style="transition-delay:.1s"><div class="service-number">02</div><h3>PhD &amp; Academic Mentoring</h3><p>One-to-one support for postgraduate researchers navigating fieldwork, writing, publication, and the demands of doctoral study.</p><div class="service-tags"><span class="tag">Writing Support</span><span class="tag">Career Strategy</span><span class="tag">Peer Review</span></div></div>
-      <div class="service-card fade-in" style="transition-delay:.2s"><div class="service-number">03</div><h3>Education &amp; Outreach</h3><p>Programmes for schools, community groups, and public audiences on nature, emergency preparedness, and environmental justice.</p><div class="service-tags"><span class="tag">School Programmes</span><span class="tag">Public Talks</span><span class="tag">Curriculum Design</span></div></div>
-      <div class="service-card fade-in" style="transition-delay:.25s"><div class="service-number">04</div><h3>Creative Research Methods</h3><p>Participatory, arts-based, and ethnographic research methods for projects reaching communities or challenging conventional research.</p><div class="service-tags"><span class="tag">Ethnography</span><span class="tag">Participatory Mapping</span><span class="tag">Photovoice</span></div></div>
-      <div class="service-card fade-in" style="transition-delay:.3s"><div class="service-number">05</div><h3>Writing &amp; Editing</h3><p>Academic writing support, manuscript review, and editing for journal articles, grant applications, and policy documents.</p><div class="service-tags"><span class="tag">Manuscript Review</span><span class="tag">Grant Writing</span><span class="tag">Editing</span></div></div>
-      <div class="service-card fade-in" style="transition-delay:.35s"><div class="service-number">06</div><h3>Keynotes &amp; Panels</h3><p>Conference presentations, panel discussions, and public lectures on urban resilience and nature-based approaches to risk.</p><div class="service-tags"><span class="tag">Conferences</span><span class="tag">Panel Discussions</span><span class="tag">Media Commentary</span></div></div>
+      <div class="service-card"><div class="service-number">01</div><h3>Research Consultancy</h3><p>Bespoke qualitative and mixed-methods research in disaster risk reduction, urban ecology, and nature-based solutions.</p><div class="service-tags"><span class="tag">Literature Reviews</span><span class="tag">Fieldwork Design</span><span class="tag">Policy Briefs</span></div></div>
+      <div class="service-card"><div class="service-number">02</div><h3>PhD &amp; Academic Mentoring</h3><p>One-to-one support for postgraduate researchers navigating fieldwork, writing, publication, and doctoral study.</p><div class="service-tags"><span class="tag">Writing Support</span><span class="tag">Career Strategy</span><span class="tag">Peer Review</span></div></div>
+      <div class="service-card"><div class="service-number">03</div><h3>Education &amp; Outreach</h3><p>Programmes for schools, community groups, and public audiences on nature, emergency preparedness, and environmental justice.</p><div class="service-tags"><span class="tag">School Programmes</span><span class="tag">Public Talks</span><span class="tag">Curriculum Design</span></div></div>
+      <div class="service-card"><div class="service-number">04</div><h3>Creative Research Methods</h3><p>Participatory, arts-based, and ethnographic research methods for projects reaching communities or challenging conventional research.</p><div class="service-tags"><span class="tag">Ethnography</span><span class="tag">Participatory Mapping</span><span class="tag">Photovoice</span></div></div>
+      <div class="service-card"><div class="service-number">05</div><h3>Writing &amp; Editing</h3><p>Academic writing support, manuscript review, and editing for journal articles, grant applications, and policy documents.</p><div class="service-tags"><span class="tag">Manuscript Review</span><span class="tag">Grant Writing</span><span class="tag">Editing</span></div></div>
+      <div class="service-card"><div class="service-number">06</div><h3>Keynotes &amp; Panels</h3><p>Conference presentations, panel discussions, and public lectures on urban resilience and nature-based approaches to risk.</p><div class="service-tags"><span class="tag">Conferences</span><span class="tag">Panel Discussions</span><span class="tag">Media Commentary</span></div></div>
     </div>
   </section>
 
   <section id="media" class="section-full">
     <div class="section-inner">
-      <div class="section-label">04 — Media &amp; Outreach</div>
+      <div class="section-label">07 — Media &amp; Outreach</div>
       <h2 class="section-title">Beyond the<br><em>journal article</em></h2>
       <div class="media-grid" style="margin-top:3rem">
-        <div class="talks-list fade-in">
+        <div>
           <div class="talk-item"><div><div class="talk-title">Nature-Based Resilience in the Anthropocene</div><div class="talk-meta">International Disaster and Risk Conference (IDRC) · Davos · 2023</div></div><div class="talk-type">Keynote</div></div>
           <div class="talk-item"><div><div class="talk-title">Urban Ecology and Emergency Preparedness: What Cities Can Learn from Nature</div><div class="talk-meta">RGS-IBG Annual Conference · London · 2023</div></div><div class="talk-type">Paper</div></div>
           <div class="talk-item"><div><div class="talk-title">Satoyama Landscapes as Living Infrastructure</div><div class="talk-meta">Japan Society for Natural Disaster Science · Kyoto · 2022</div></div><div class="talk-type">Invited</div></div>
           <div class="talk-item"><div><div class="talk-title">Ecological Posthumanism and the Future of DRR</div><div class="talk-meta">UCL DRDR Seminar Series · London · 2024</div></div><div class="talk-type">Seminar</div></div>
           <div class="talk-item"><div><div class="talk-title">Environment and Emergency Preparedness Panel</div><div class="talk-meta">Green Party Conference · London · 2022</div></div><div class="talk-type">Panel</div></div>
         </div>
-        <div class="fade-in" style="transition-delay:.15s">
+        <div>
           <div class="outreach-card"><h4>School Outreach</h4><p>Delivering hands-on workshops on nature, safety, and emergencies across London primary and secondary schools.</p></div>
           <div class="outreach-card"><h4>Political Engagement</h4><p>Standing as a Green Party candidate in North Acton; advocating for nature-positive urban planning at local government level.</p></div>
           <div class="outreach-card"><h4>Public Writing</h4><p>Commentary on nature-based disaster resilience for general audiences. Available for media interviews and editorial commissions.</p></div>
@@ -323,21 +355,21 @@
   </section>
 
   <section id="blog" class="section">
-    <div class="section-label">05 — Writing</div>
+    <div class="section-label">08 — Writing</div>
     <h2 class="section-title">Thinking out<br><em>loud</em></h2>
     <p class="section-intro">Essays, reflections, and commentary on disaster science, urban nature, fieldwork, and the academy.</p>
     <div class="blog-grid">
-      <div class="blog-card fade-in"><div class="blog-card-img">🌿</div><div class="blog-card-body"><div class="blog-category">Nature &amp; Resilience</div><h3>What a Forest Fire Taught Me About Urban Planning</h3><p>On the counterintuitive lessons of disturbance ecology — and why cities need more chaos, not less.</p></div><div class="blog-card-meta"><span>Essay</span><span>8 min read</span></div></div>
-      <div class="blog-card fade-in" style="transition-delay:.1s"><div class="blog-card-img">🏯</div><div class="blog-card-body"><div class="blog-category">Fieldwork</div><h3>Notes from Kyoto: What Japan Knows About Living with Disaster</h3><p>Reflections on satoyama, cultural memory, and the quiet resilience built into centuries-old Japanese landscapes.</p></div><div class="blog-card-meta"><span>Fieldwork Notes</span><span>12 min read</span></div></div>
-      <div class="blog-card fade-in" style="transition-delay:.2s"><div class="blog-card-img">📖</div><div class="blog-card-body"><div class="blog-category">Academia</div><h3>On Doing a PhD Part-Time: The Things Nobody Tells You</h3><p>A frank account of managing doctoral research alongside a full-time career — the frustrations, the breakthroughs, and what makes it worth it.</p></div><div class="blog-card-meta"><span>Reflection</span><span>10 min read</span></div></div>
+      <div class="blog-card"><div class="blog-card-img">🌿</div><div class="blog-card-body"><div class="blog-category">Nature &amp; Resilience</div><h3>What a Forest Fire Taught Me About Urban Planning</h3><p>On the counterintuitive lessons of disturbance ecology — and why cities need more chaos, not less.</p></div><div class="blog-card-meta"><span>Essay</span><span>8 min read</span></div></div>
+      <div class="blog-card"><div class="blog-card-img">🏯</div><div class="blog-card-body"><div class="blog-category">Fieldwork</div><h3>Notes from Kyoto: What Japan Knows About Living with Disaster</h3><p>Reflections on satoyama, cultural memory, and the quiet resilience built into centuries-old landscapes.</p></div><div class="blog-card-meta"><span>Fieldwork Notes</span><span>12 min read</span></div></div>
+      <div class="blog-card"><div class="blog-card-img">📖</div><div class="blog-card-body"><div class="blog-category">Academia</div><h3>On Doing a PhD Part-Time: The Things Nobody Tells You</h3><p>A frank account of managing doctoral research alongside a full-time career.</p></div><div class="blog-card-meta"><span>Reflection</span><span>10 min read</span></div></div>
     </div>
   </section>
 
   <section id="contact" class="section-full">
     <div class="section-inner">
       <div class="contact-grid">
-        <div class="contact-left fade-in">
-          <div class="section-label">06 — Contact</div>
+        <div class="contact-left">
+          <div class="section-label">09 — Contact</div>
           <h2 class="section-title">Let's work<br><em>together</em></h2>
           <p>I welcome enquiries about research collaborations, consultancy, mentoring, speaking invitations, and media appearances. Based in London, working internationally.</p>
           <div class="contact-links">
@@ -347,16 +379,23 @@
             <a href="https://linkedin.com/in/your-profile" target="_blank" class="contact-link"><div class="contact-link-left"><span>in</span><span class="contact-link-label">LinkedIn</span></div><span class="contact-link-value">your-profile</span></a>
           </div>
         </div>
-        <div class="contact-right fade-in" style="transition-delay:.15s">
+        <div>
           <div class="section-label" style="margin-bottom:1.5rem">Send a message</div>
           <div class="contact-form">
             <div class="form-row">
-              <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" /></div>
-              <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" /></div>
+              <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane"></div>
+              <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
             </div>
-            <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@example.com" /></div>
-            <div class="form-group"><label>Organisation (Optional)</label><input type="text" placeholder="University / NGO / Company" /></div>
-            <div class="form-group"><label>Enquiry Type</label><select><option value="">Select a category</option><option>Research Collaboration</option><option>Consultancy</option><option>PhD Mentoring</option><option>Speaking / Keynote</option><option>Education / Outreach</option><option>Media / Press</option><option>Other</option></select></div>
+            <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@example.com"></div>
+            <div class="form-group"><label>Organisation (Optional)</label><input type="text" placeholder="University / NGO / Company"></div>
+            <div class="form-group"><label>Enquiry Type</label>
+              <select>
+                <option value="">Select a category</option>
+                <option>Research Collaboration</option><option>Consultancy</option>
+                <option>PhD Mentoring</option><option>Speaking / Keynote</option>
+                <option>Education / Outreach</option><option>Media / Press</option><option>Other</option>
+              </select>
+            </div>
             <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your project, question, or idea..."></textarea></div>
             <button class="form-submit" type="button">Send Message →</button>
           </div>
@@ -369,13 +408,5 @@
     <div class="footer-left"><strong>Maciej Pawlik</strong> — Disaster Scientist · UCL DRDR · London<br>AFRGS · Nature-Based Resilience · Creative Research Methods</div>
     <div class="footer-right">© 2025 Maciej Pawlik</div>
   </footer>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
-
 </body>
 </html>
