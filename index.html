@@ -517,6 +517,26 @@
     .footer-left strong { color: #ffffff; font-weight: 700; }
     .footer-right { font-size: 0.68rem; font-weight: 400; color: #ffffff; }
 
+    /* ── CV DOCUMENT ── */
+    .cv-doc { border: 2px solid var(--border); background: #fff; }
+    .cv-header { padding: 2rem 2.5rem 1.5rem; border-bottom: 2px solid var(--border); }
+    .cv-header h1 { font-size: 1.5rem; font-weight: 700; color: #111111; margin-bottom: 0.4rem; }
+    .cv-affil { font-size: 0.95rem; color: #555555; }
+    .cv-row { display: grid; grid-template-columns: 160px 1fr; border-bottom: 2px solid var(--border); }
+    .cv-row:last-child { border-bottom: none; }
+    .cv-label { padding: 1.4rem 1.5rem; background: var(--surface); font-size: 0.78rem; font-weight: 700; color: #111111; border-right: 2px solid var(--border); line-height: 1.4; }
+    .cv-body { padding: 1.4rem 1.8rem; font-size: 0.9rem; color: #2C2C2C; line-height: 1.7; }
+    .cv-body a { color: var(--moss); }
+    .cv-org { font-weight: 700; color: #111111; margin-bottom: 0.1rem; }
+    .cv-role { font-style: italic; color: #555555; margin-bottom: 0.4rem; }
+    .cv-list { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.3rem; }
+    .cv-list li { font-size: 0.88rem; color: #2C2C2C; }
+    .cv-testimonial { border-left: 4px solid var(--moss); padding: 1.2rem 1.4rem; margin-bottom: 1.5rem; background: var(--surface); }
+    .cv-testimonial:last-child { margin-bottom: 0; }
+    .cv-quote { font-size: 0.9rem; font-style: italic; color: #2C2C2C; line-height: 1.75; margin-bottom: 0.8rem; }
+    .cv-tname { font-weight: 700; font-size: 0.9rem; color: #111111; }
+    .cv-trole { font-size: 0.8rem; color: #555555; }
+
     /* ── CV ── */
     .cv-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start; }
     .cv-details { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -578,6 +598,8 @@
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
       .stat-item { padding: 1.5rem; }
       .section, .section-full { padding: 4rem 1.5rem; }
+      .cv-row { grid-template-columns: 1fr; }
+      .cv-label { border-right: none; border-bottom: 2px solid var(--border); }
       .about-grid, .teaching-grid, .contact-grid, .media-grid, .cv-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-photos { grid-template-columns: 1fr 1fr; }
       .about-photos .photo-tall { grid-row: auto; }
@@ -912,69 +934,10 @@
   </section>
 
   <!-- ══ CV ══ -->
-  <section id="cv" class="section-full">
-    <div class="section-inner">
-      <div class="section-label">06b — Curriculum Vitae</div>
-      <h2 class="section-title">Full <em>CV</em></h2>
-      <div class="cv-grid">
-        <div class="cv-details">
-          <div class="cv-detail-block">
-            <h4>Current Position</h4>
-            <p>Part-time Doctoral Researcher, UCL Institute for Risk and Disaster Reduction. Postgraduate Teaching Associate, UCL DRDR. Guest Lecturer, UCL IOE.</p>
-          </div>
-          <div class="cv-detail-block">
-            <h4>Education</h4>
-            <ul>
-              <li>PhD Nature-based Disaster Resilience — UCL (2024–present)</li>
-              <li>MSc Global Futures, Distinction — RHUL (2021–22)</li>
-              <li>BSc Psychology, 2:1 — RHUL (2018–21)</li>
-            </ul>
-          </div>
-          <div class="cv-detail-block">
-            <h4>Key Credentials</h4>
-            <ul>
-              <li>Associate Fellow, Advance HE (AFHEA)</li>
-              <li>Associate Fellow, Royal Geographical Society</li>
-              <li>UKADR Steering Committee Member</li>
-              <li>£55,000 total research funding</li>
-              <li>3 Q1 published papers</li>
-            </ul>
-          </div>
-          <div class="cv-detail-block">
-            <h4>Languages</h4>
-            <ul>
-              <li>English &amp; Polish — Native</li>
-              <li>Japanese — JLPT In Progress</li>
-              <li>BSL — Intermediate</li>
-            </ul>
-          </div>
-          <!-- Replace # with your actual CV PDF path, e.g. href="cv-maciej-pawlik.pdf" -->
-          <a href="cv-maciej-pawlik.pdf" class="cv-download" target="_blank">⬇ Download PDF CV</a>
-        </div>
-        <div>
-          <div class="cv-pdf-wrap">
-            <!--
-              TO EMBED YOUR CV:
-              1. Save your CV as a PDF, e.g. "cv-maciej-pawlik.pdf"
-              2. Put it in the same folder as this HTML file
-              3. Replace the src below with your filename
-              4. Delete the placeholder div below the iframe
-            -->
-            <iframe
-              src="file:///E:/PhD/Main%20PhD%20Folder/Academic%20CV%20-%20Maciej%20Pawlik/MP%20-%20CV%20Revamp26.pdf"
-              title="Maciej Pawlik CV"
-              onerror="this.style.display='none'"
-            ></iframe>
-            <div class="file:///E:/PhD/Main%20PhD%20Folder/Academic%20CV%20-%20Maciej%20Pawlik/MP%20-%20CV%20Revamp26.pdf">
-              <div class="placeholder-icon">📄</div>
-              <h4>Your CV will appear here</h4>
-              <p>Save your CV as a PDF and place it in the same folder as this HTML file, then set:</p>
-              <code>src="file:///E:/PhD/Main%20PhD%20Folder/Academic%20CV%20-%20Maciej%20Pawlik/MP%20-%20CV%20Revamp26.pdf"</code>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section id="cv" class="section">
+    <div class="section-label">06b — Curriculum Vitae</div>
+    <h2 class="section-title">Download my <em>CV</em></h2>
+    <a href="cv-maciej-pawlik.pdf" class="btn-primary" target="_blank">⬇ Download PDF CV</a>
   </section>
 
   <!-- ══ MEDIA ══ -->
@@ -1092,7 +1055,7 @@
   </section>
 
   <footer>
-    <div class="footer-left"><strong>Maciej Pawlik</strong> — Disaster Scientist · UCL RDR · London<br>AFHEA · AFRGS · Nature-Based Disaster Resilience · Green Learning</div>
+    <div class="footer-left"><strong>Maciej Pawlik</strong> — Disaster Scientist · UCL IRDR · London<br>AFHEA · AFRGS · Nature-Based Disaster Resilience · Green Learning</div>
     <div class="footer-right">© 2026 Maciej Pawlik</div>
   </footer>
 
@@ -1117,4 +1080,3 @@
   </script>
 </body>
 </html>
-
