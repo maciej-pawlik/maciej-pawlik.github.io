@@ -119,14 +119,14 @@
 
     /* ── HERO ── */
     #home {
-      min-height: 50vh;
+      min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 800px;
-      padding-top: 46px;
+      grid-template-columns: 1fr 55%;
+      padding-top: 56px;
       background: var(--surface);
     }
     .hero-content {
-      padding: 3rem 2rem 3rem 2rem;
+      padding: 5rem 4rem 5rem 5rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -209,7 +209,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center center;
       display: block;
     }
     .photo-slot {
@@ -594,7 +594,7 @@
       .hamburger { display: flex; }
       #home { grid-template-columns: 1fr; }
       .hero-content { padding: 5rem 2rem 3.5rem; }
-      .hero-photo-panel { min-height: 300px; }
+      .hero-photo-panel { min-height: 380px; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
       .stat-item { padding: 1.5rem; }
       .section, .section-full { padding: 4rem 1.5rem; }
@@ -667,7 +667,6 @@
       </div>
     </div>
     <div class="hero-photo-panel">
-      <!-- Replace src with your photo, e.g. src="photo-hero.jpg" -->
       <img src="Main.pic.jpeg" alt="Maciej Pawlik" onerror="this.style.display='none'">
       <div class="photo-slot">
         <div class="photo-slot-icon">📷</div>
@@ -691,7 +690,6 @@
     <h2 class="section-title">Rethinking resilience<br>through <em>living systems</em></h2>
     <div class="about-grid">
       <div>
-        <!-- Photo grid: replace src values with your images -->
         <div class="about-photos">
           <div class="img-slot img-h-full photo-tall">
             <img src="samos.pic.jpeg" alt="Fieldwork" onerror="this.style.display='none'">
@@ -729,8 +727,6 @@
           <span class="interest-tag">Pokémon TCG</span>
           <span class="interest-tag">Japanese Culture</span>
         </div>
-
-        <!-- Extra portrait slot -->
         <div class="img-slot img-h-260" style="margin-top:1.5rem">
           <img src="Scotland.pic.jpeg" alt="Portrait" onerror="this.style.display='none'">
         </div>
@@ -738,7 +734,7 @@
     </div>
   </section>
 
-  <!-- FIELDWORK STRIP (with photos) -->
+  <!-- FIELDWORK STRIP -->
   <div class="fieldwork-strip">
     <div class="fieldwork-location">
       <div class="fieldwork-img">
@@ -747,7 +743,7 @@
       <div class="fieldwork-body">
         <div class="fieldwork-city">Matsushima Bay</div>
         <div class="fieldwork-country">Japan</div>
-        <p class="fieldwork-desc">Reflecting on the safety provided by the hundreds of pine islands that serve as natural barriers to storms and tsunamis.</p>
+        <p class="fieldwork-desc">Reflecting on the safety provided by the hundreds of pine islands that serve as natural barriers to stroms and tsunamis.</p>
       </div>
     </div>
     <div class="fieldwork-location">
@@ -836,19 +832,19 @@
     </div>
   </section>
 
-  <!-- PHOTO STRIP — between research and teaching -->
+  <!-- PHOTO STRIP -->
   <div class="photo-strip">
     <div class="photo-strip-item">
       <img src="KyotoRiver.pic.jpeg" alt="" onerror="this.style.display='none'">
-      <div class="slot-label">Fieldwork</div>
+      <div class="slot-label">Field / Nature</div>
     </div>
     <div class="photo-strip-item">
       <img src="UCLteaching.pic.jpeg" alt="" onerror="this.style.display='none'">
-      <div class="slot-label">Strategic Planning</div>
+      <div class="slot-label">Conference</div>
     </div>
     <div class="photo-strip-item">
       <img src="sciencefestival.pic.jpeg" alt="" onerror="this.style.display='none'">
-      <div class="slot-label">Public Talks</div>
+      <div class="slot-label">Japan Fieldwork</div>
     </div>
     <div class="photo-strip-item">
       <img src="teaching.pic.jpeg" alt="" onerror="this.style.display='none'">
@@ -856,7 +852,7 @@
     </div>
     <div class="photo-strip-item">
       <img src="Hiking.pic.jpeg" alt="" onerror="this.style.display='none'">
-      <div class="slot-label">Expeditions</div>
+      <div class="slot-label">Community</div>
     </div>
   </div>
 
@@ -874,7 +870,6 @@
       <div>
         <div class="info-box"><h4>Teaching Philosophy</h4><p>I embed teaching within applied research rather than treating it as a separate role. My goal is to equip students with critical thinking and practical tools for navigating environmental and disaster risk.</p></div>
         <div class="info-box gold-box"><h4>Mentoring</h4><p>Available to mentor students in disaster research, science, and career navigation. Please <a href="#contact">get in touch</a> to discuss opportunities.</p></div>
-        <!-- Teaching photo slot -->
         <div class="img-slot img-h-180" style="margin-top:1rem">
           <img src="school.pic.jpeg" alt="Teaching" onerror="this.style.display='none'">
         </div>
@@ -949,7 +944,6 @@
           <div class="outreach-card"><h4>Policy Engagement</h4><p>Invited by the Head of Resilience at the UK Cabinet Office to advise on national disaster education policy. UKADR Steering Committee member.</p></div>
           <div class="outreach-card"><h4>Political Advocacy</h4><p>Green Party paper candidate, North Acton (2025). Shortlisted for National Science Spokesperson. London Climate Ambassador.</p></div>
           <div class="outreach-card"><h4>Podcast &amp; Public Writing</h4><p>Featured on Garry Turner's <em>In the Business of Healthy Masculinity</em> (Ep. 25). Commentary on science, politics, and education for general audiences.</p></div>
-          <!-- Conference photo slot -->
           <div class="img-slot img-h-180">
             <img src="conf.pic.jpeg" alt="Conference" onerror="this.style.display='none'">
           </div>
@@ -1065,3 +1059,4 @@
   </script>
 </body>
 </html>
+
