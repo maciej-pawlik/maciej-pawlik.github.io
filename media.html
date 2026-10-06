@@ -1,208 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Media | Maciej Pawlik, Disaster Scientist</title>
-<meta name="description" content="Maciej Pawlik: Disaster Scientist researching nature-based solutions, disaster resilience and Green Learning.">
-<meta name="color-scheme" content="light only">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{color-scheme:light only;--bg:#fff;--surface:#F7F8F5;--surface2:#EEF0EB;--border:#DDE0D8;--moss:#3D5C3A;--moss-light:#5C7A58;--gold:#B8912A;--gold-light:#D4AA4A;--text:#111;--text-body:#2C2C2C;--text-muted:#555;--text-dim:#777;--sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace}
-*,::before,::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:#fff;color:#2C2C2C;font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.spacer{height:56px}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--text-muted);transition:all .3s}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;background:#fff;border-bottom:2px solid var(--border);z-index:99;flex-direction:column}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-size:.85rem;font-weight:600;letter-spacing:.04em;color:var(--text-muted);text-decoration:none;padding:.9rem 1.8rem;border-bottom:1px solid var(--border)}
-.mobile-menu a:last-child{border-bottom:none}
-.mobile-menu a:hover,.mobile-menu a.active{color:var(--moss);background:var(--surface)}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:56px}
-.nav-logo{font-weight:700;font-size:1rem;color:var(--moss);text-decoration:none}
-.nav-links{display:flex;list-style:none}
-.nav-links a{font-size:.78rem;font-weight:700;letter-spacing:.03em;color:#111;text-decoration:none;padding:0 1rem;height:56px;display:flex;align-items:center;border-bottom:3px solid transparent;transition:color .2s,border-color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--moss);border-bottom-color:var(--moss)}
-#home{display:grid;grid-template-columns:1fr 520px;gap:3rem;align-items:center;padding:4rem 5rem;background:var(--surface)}
-.hero-content{display:flex;flex-direction:column;justify-content:center}
-.hero-eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--moss-light);margin-bottom:1.2rem}
-.hero-name{font-size:clamp(3rem,6vw,5.5rem);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--text);margin-bottom:1.2rem}
-.hero-name span{color:var(--moss)}
-.hero-subtitle{font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#111;margin-bottom:1.8rem}
-.hero-tagline{font-size:1.15rem;color:#2C2C2C;max-width:460px;margin-bottom:2.5rem}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary,.btn-ghost{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--moss);padding:.85rem 2rem;text-decoration:none;display:inline-block;transition:background .2s,color .2s}
-.btn-primary{color:#fff;background:var(--moss)}
-.btn-primary:hover{background:var(--moss-light);border-color:var(--moss-light)}
-.btn-ghost{color:var(--moss);background:transparent}
-.btn-ghost:hover{background:var(--moss);color:#fff}
-.hero-photo-panel{background:var(--surface2);border:2px solid var(--border);position:relative;overflow:hidden;width:100%;height:420px}
-.hero-photo-panel img{width:100%;height:100%;object-fit:cover;object-position:25% 35%;display:block}
-.hero-coords{position:absolute;bottom:1.5rem;left:1.5rem;font-family:var(--mono);font-size:.62rem;color:var(--text-dim);background:rgba(255,255,255,.85);padding:.4rem .7rem}
-.stats-bar{background:var(--moss);display:grid;grid-template-columns:repeat(4,1fr)}
-.stat-item{padding:2rem 2.5rem;border-right:1px solid rgba(255,255,255,.12)}
-.stat-item:last-child{border-right:none}
-.stat-number{font-size:2.2rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:.35rem}
-.stat-label{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff}
-.section{padding:5rem;max-width:1180px;margin:0 auto}
-.section-full{padding:5rem;background:var(--surface);border-top:2px solid var(--border);border-bottom:2px solid var(--border)}
-.section-inner{max-width:1180px;margin:0 auto}
-.section-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--moss-light);margin-bottom:.6rem}
-h2.section-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;line-height:1.15;color:var(--text);margin-bottom:2rem;letter-spacing:-.01em}
-h2.section-title em{font-style:normal;color:var(--moss)}
-.section-intro{font-size:1.05rem;color:var(--text-muted);max-width:48rem;line-height:1.8;margin-bottom:3rem}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.about-photos{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:2rem}
-.about-photos .photo-tall{grid-column:1;grid-row:1/3}
-.img-slot{background:var(--surface2);border:2px solid var(--border);overflow:hidden;position:relative}
-.img-slot img{width:100%;height:100%;object-fit:cover;display:block}
-.img-h-200{height:200px}.img-h-260{height:260px}.img-h-180{height:180px}.img-h-full{height:100%;min-height:420px}
-.about-bio{line-height:1.85;color:var(--text-body)}
-.about-bio p+p{margin-top:1rem}
-.about-bio strong{color:var(--moss);font-weight:700}
-.interests-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
-.interest-tag{font-size:.72rem;font-weight:600;letter-spacing:.05em;padding:.3rem .8rem;background:var(--surface2);border:2px solid var(--border);color:var(--text-muted)}
-.expertise-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:2px solid var(--border);margin-top:2rem}
-.expertise-card{background:var(--bg);padding:1.5rem;transition:background .2s}
-.expertise-card:hover{background:var(--surface)}
-.expertise-icon{font-size:1.2rem;margin-bottom:.6rem;display:block}
-.expertise-card h3{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--moss);margin-bottom:.4rem}
-.expertise-card p{font-size:.85rem;color:var(--text-muted);line-height:1.6}
-.fieldwork-strip{border-top:2px solid var(--border);border-bottom:2px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr)}
-.fieldwork-location{background:var(--surface);border-right:2px solid var(--border);overflow:hidden}
-.fieldwork-location:last-child{border-right:none}
-.fieldwork-img{height:200px;background:var(--surface2);overflow:hidden;border-bottom:2px solid var(--border)}
-.fieldwork-img img{width:100%;height:100%;object-fit:cover;display:block}
-.fieldwork-body{padding:1.8rem 2rem}
-.fieldwork-city{font-size:1.8rem;font-weight:700;color:var(--text);letter-spacing:-.01em}
-.fieldwork-country{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
-.fieldwork-desc{font-size:.88rem;color:var(--text-muted);line-height:1.65}
-.edu-item{display:grid;grid-template-columns:8rem 1fr;gap:2rem;padding:1.8rem 0;border-bottom:2px solid var(--border);align-items:start}
-.edu-year{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--gold);padding-top:.2rem;line-height:1.6}
-.edu-degree{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.2rem}
-.edu-inst{font-size:.85rem;font-weight:600;color:var(--moss-light);margin-bottom:.4rem}
-.edu-detail{font-size:.88rem;color:var(--text-muted);line-height:1.65}
-.pub-item{padding:1.8rem 0;border-bottom:2px solid var(--border);display:grid;grid-template-columns:3.5rem 1fr auto;gap:2rem;align-items:start}
-.pub-year{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--gold);padding-top:.2rem}
-.pub-title{font-size:1rem;font-weight:600;color:var(--text);line-height:1.45;margin-bottom:.3rem}
-.pub-title a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border)}
-.pub-title a:hover{text-decoration-color:var(--moss);color:var(--moss)}
-.pub-journal{font-size:.78rem;font-weight:500;color:var(--text-muted)}
-.pub-badge{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .6rem;border:2px solid;white-space:nowrap;align-self:center}
-.badge-published{color:var(--moss);border-color:var(--moss-light)}
-.badge-review{color:var(--gold);border-color:var(--gold-light)}
-.grants-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:2px solid var(--border);margin-top:2rem}
-.grant-card{background:var(--bg);padding:2rem}
-.grant-card:hover{background:var(--surface)}
-.grant-funder{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
-.grant-title{font-size:.98rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:.5rem}
-.grant-detail{font-size:.78rem;font-weight:500;color:var(--text-muted)}
-.membership-item{display:grid;grid-template-columns:1fr auto;gap:1rem;padding:1rem 0;border-bottom:2px solid var(--border);align-items:baseline}
-.membership-org{font-size:.98rem;font-weight:600;color:var(--text)}
-.membership-role{font-size:.72rem;font-weight:500;color:var(--text-muted);white-space:nowrap;text-align:right}
-.teaching-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start}
-.teaching-item{display:grid;grid-template-columns:6.5rem 1fr;gap:1.5rem;padding:1.4rem 0;border-bottom:2px solid var(--border);align-items:start}
-.teaching-year{font-family:var(--mono);font-size:.68rem;font-weight:500;color:var(--gold);padding-top:.2rem}
-.teaching-course{font-size:.98rem;font-weight:700;color:var(--text);margin-bottom:.2rem;line-height:1.35}
-.teaching-meta{font-size:.78rem;font-weight:500;color:var(--text-muted)}
-.info-box{background:var(--bg);border-left:4px solid var(--moss-light);padding:1.4rem;margin-bottom:1rem}
-.info-box h4{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);margin-bottom:.5rem}
-.info-box p{font-size:.9rem;color:var(--text-muted);line-height:1.7}
-.info-box a{color:var(--moss);font-weight:600}
-.info-box.gold-box{border-left-color:var(--gold)}
-.info-box.gold-box h4{color:var(--gold)}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.service-card{background:var(--surface);border:2px solid var(--border);padding:2rem;transition:border-color .2s,transform .2s}
-.service-card:hover{border-color:var(--moss-light);transform:translateY(-2px)}
-.service-number{font-size:2.5rem;font-weight:700;color:var(--border);line-height:1;margin-bottom:1rem;filter:brightness(.7)}
-.service-card h3{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text);margin-bottom:.75rem}
-.service-card p{font-size:.9rem;color:var(--text-muted);line-height:1.7}
-.service-card a.more{color:var(--moss);font-weight:700;text-decoration:none;display:inline-block;margin-top:1rem}
-.service-tags{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.4rem}
-.stag{font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);border:2px solid var(--border);padding:.18rem .5rem}
-.media-grid{display:grid;grid-template-columns:2fr 1fr;gap:3.5rem;margin-top:2.5rem}
-.talk-item{display:grid;grid-template-columns:1fr auto;gap:2rem;padding:1.4rem 0;border-bottom:2px solid var(--border);align-items:center}
-.talk-title{font-size:.98rem;font-weight:600;color:var(--text);margin-bottom:.3rem;line-height:1.4}
-.talk-meta{font-size:.72rem;color:var(--text-muted)}
-.talk-type{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .65rem;border:2px solid var(--border);color:var(--text-body);white-space:nowrap;align-self:flex-start}
-.outreach-card{background:var(--bg);border:2px solid var(--border);padding:1.5rem;margin-bottom:1rem}
-.outreach-card h4{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--moss);margin-bottom:.5rem}
-.outreach-card p{font-size:.88rem;color:var(--text-muted);line-height:1.65}
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.blog-card{border:2px solid var(--border);background:var(--bg);transition:border-color .2s,transform .2s}
-.blog-card:hover{border-color:var(--moss-light);transform:translateY(-2px)}
-.blog-card-img{height:140px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:2.2rem;border-bottom:2px solid var(--border)}
-.blog-card-body{padding:1.4rem}
-.blog-category{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--moss-light);margin-bottom:.5rem}
-.blog-card h3{font-size:.95rem;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:.5rem}
-.blog-card h3 a{color:inherit;text-decoration:none}
-.blog-card h3 a:hover{color:var(--moss)}
-.blog-card p{font-size:.83rem;color:var(--text-muted);line-height:1.6}
-.blog-card-meta{padding:.6rem 1.4rem;background:var(--surface);border-top:2px solid var(--border);font-size:.65rem;font-weight:600;color:var(--text-muted);display:flex;justify-content:space-between}
-.photo-strip{display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--border);border-bottom:2px solid var(--border)}
-.photo-strip-item{height:220px;background:var(--surface2);overflow:hidden;border-right:2px solid var(--border);position:relative}
-.photo-strip-item:last-child{border-right:none}
-.photo-strip-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s;display:block}
-.photo-strip-item:hover img{transform:scale(1.04)}
-.slot-label{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.85);font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:.35rem .5rem;text-align:center}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.contact-left p{color:var(--text-muted);line-height:1.85;margin-bottom:2rem}
-.contact-links{display:flex;flex-direction:column;gap:2px}
-.contact-link{background:var(--surface);border:2px solid var(--border);padding:1rem 1.2rem;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s,border-color .2s}
-.contact-link:hover{background:var(--surface2);border-color:var(--moss-light)}
-.contact-link-left{display:flex;align-items:center;gap:.85rem}
-.contact-link-icon{width:30px;height:30px;background:var(--moss);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
-.contact-link-label{font-size:.78rem;font-weight:700;color:var(--text)}
-.contact-link-value{font-size:.72rem;color:var(--text-muted)}
-.contact-form{display:flex;flex-direction:column;gap:1rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.form-group{display:flex;flex-direction:column;gap:.3rem}
-.form-group label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
-.form-group input,.form-group textarea,.form-group select{background:var(--surface);border:2px solid var(--border);color:var(--text);padding:.7rem .9rem;font-family:var(--sans);font-size:.95rem;outline:none;width:100%}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--moss)}
-.form-group textarea{resize:vertical;min-height:110px}
-.form-submit{font-family:var(--sans);font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--moss);border:2px solid var(--moss);padding:.9rem 2rem;cursor:pointer;align-self:flex-start}
-.form-submit:hover{background:var(--moss-light);border-color:var(--moss-light)}
-footer{background:var(--text);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;color:#fff}
-.footer-left{font-size:.78rem;font-weight:600;line-height:1.8}
-.footer-right{font-size:.68rem}
-@media(max-width:960px){
-nav{padding:0 1.5rem}.nav-links{display:none}.hamburger{display:flex}
-#home{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2rem}
-.hero-photo-panel{height:260px}
-.stats-bar{grid-template-columns:repeat(2,1fr)}.stat-item{padding:1.5rem}
-.section,.section-full{padding:4rem 1.5rem}
-.about-grid,.teaching-grid,.contact-grid,.media-grid{grid-template-columns:1fr;gap:2.5rem}
-.about-photos .photo-tall{grid-row:auto}
-.expertise-grid,.fieldwork-strip{grid-template-columns:1fr}
-.fieldwork-location{border-right:none;border-bottom:2px solid var(--border)}
-.grants-grid,.services-grid,.blog-grid{grid-template-columns:1fr}
-.photo-strip{grid-template-columns:repeat(3,1fr)}
-.photo-strip-item:nth-child(4),.photo-strip-item:nth-child(5){display:none}
-.pub-item{grid-template-columns:3rem 1fr;gap:1rem}.pub-badge{display:none}
-.edu-item{grid-template-columns:5rem 1fr;gap:1rem}
-.teaching-item{grid-template-columns:5.5rem 1fr}
-.membership-item{grid-template-columns:1fr;gap:.2rem}.membership-role{text-align:left}
-.talk-item{grid-template-columns:1fr;gap:.4rem}
-.form-row{grid-template-columns:1fr}
-footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
-.contact-link-value{display:none}}
-</style>
+<meta name="description" content="Conference talks, outreach, public writing and podcasts by disaster scientist Maciej Pawlik.">
+<meta property="og:title" content="Media | Maciej Pawlik, Disaster Scientist">
+<meta property="og:description" content="Conference talks, outreach, public writing and podcasts by disaster scientist Maciej Pawlik.">
+<meta property="og:image" content="https://maciej-pawlik.github.io/ScottishNature.pic.jpeg">
+<meta name="theme-color" content="#0f1f18">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<div class="mobile-menu" id="mobile-menu"><a href="index.html">Home</a><a href="about.html">About</a><a href="research.html">Research</a><a href="teaching.html">Teaching</a><a href="media.html" class='active'>Media</a><a href="contact.html">Contact</a></div>
-<nav><a href="index.html" class="nav-logo">M. Pawlik</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="research.html">Research</a></li><li><a href="teaching.html">Teaching</a></li><li><a href="media.html" class='active'>Media</a></li><li><a href="contact.html">Contact</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
-<div class="spacer"></div>
-<section class="section-full"><div class="section-inner"><div class="section-label">Media &amp; Conferences</div><h2 class="section-title">Beyond the<br><em>journal article</em></h2><div class="media-grid"><div><div class="talk-item"><div><div class="talk-title">Green Learning for Disaster Resilience: Preliminary Insights from Kyoto, Japan</div><div class="talk-meta">16th IDRiM Conference · Bali, Indonesia · 2026</div></div><div class="talk-type">Young Scientist Session</div></div><div class="talk-item"><div><div class="talk-title">With nature we can tell a different story rooted in hope</div><div class="talk-meta">UCL DRR &amp; Humanitarianism Society Innovation Evening · London · 2025</div></div><div class="talk-type">Talk</div></div><div class="talk-item"><div><div class="talk-title">Using Agent-based Modelling to Increase Predictive Capacities of Human Behaviour during Tsunami-induced Flooding Emergencies</div><div class="talk-meta">15th IDRiM Conference · Samos Island, Greece · 2025</div></div><div class="talk-type">Young Scientist Session</div></div><div class="talk-item"><div><div class="talk-title">Children as Our Last Hope: How Creative Learning can Save the Planet</div><div class="talk-meta">UCL Sociology Network Inaugural Conference · London · 2025</div></div><div class="talk-type">Presentation</div></div><div class="talk-item"><div><div class="talk-title">Flood, Sweat &amp; Tears</div><div class="talk-meta">British Science Festival · London · 2024</div></div><div class="talk-type">Presentation</div></div><div class="talk-item"><div><div class="talk-title">Crafting Risk Communication in the Context of Flooding</div><div class="talk-meta">Catalysing Connections Conference, UEL · London · 2023</div></div><div class="talk-type">Presentation</div></div><div class="talk-item"><div><div class="talk-title">Thematic Mapping for Integrated Risk Communication</div><div class="talk-meta">13th IDRiM Conference · Roorkee, India (Online) · 2023</div></div><div class="talk-type">Young Scientist Session</div></div><div class="talk-item"><div><div class="talk-title">Wider Stakeholder Perspectives in Climate Adaptation</div><div class="talk-meta">Impact &amp; Innovation Conference, UEL · London · 2023</div></div><div class="talk-type">Presentation</div></div><div class="talk-item"><div><div class="talk-title">Developing a System of Risk Communication to Meet the Climate Action Pledge of the SDGs</div><div class="talk-meta">6th GADRI Conference · Kyoto, Japan · 2023</div></div><div class="talk-type">Poster</div></div><div class="talk-item"><div><div class="talk-title">Risk Communication: Translating Expert Language to Non-experts</div><div class="talk-meta">12th IDRiM Conference · Cluj-Napoca, Romania (Online) · 2022</div></div><div class="talk-type">Young Scientist</div></div></div><div><div class="outreach-card"><h4>School Outreach</h4><p>Delivering hands-on workshops on nature, safety, and emergencies across London schools.</p></div><div class="outreach-card"><h4>Policy Engagement</h4><p>Providing advice on national disaster education policy, urban nature interventions, and disaster research funding.</p></div><div class="outreach-card"><h4>Political Advocacy</h4><p>Supporting climate and social justice by standing in elections, campaigning &amp; advocacy.</p></div><div class="outreach-card"><h4>Podcast &amp; Public Writing</h4><p>Featured on Garry Turner's <em>In the Business of Healthy Masculinity</em> (Ep. 25). Commentary on science, politics, and education for general audiences.</p></div><div class="img-slot img-h-180"><img src="conf.pic.jpeg" alt="Conference" onerror="this.style.display='none'"></div></div></div></div></section><section class="section"><div class="section-label">02 — Writing &amp; Interviews</div><h2 class="section-title">Thinking out<br><em>loud</em></h2><p class="section-intro">Writings, reflections, and commentary on disaster science, research work, politics, and beyond.</p><div class="blog-grid"><div class="blog-card"><div class="blog-card-img">🌿</div><div class="blog-card-body"><div class="blog-category">The Conversation</div><h3><a href="https://theconversation.com/east-london-is-at-high-risk-of-extreme-flooding-heres-how-to-limit-the-damage-275238" target="_blank" rel="noopener">East London is at high risk of extreme flooding — here's how to limit the damage</a></h3><p>On the use of nature to protect the UK's capital from national security threats.</p></div><div class="blog-card-meta"><span>Article</span><span>5 min read</span></div></div><div class="blog-card"><div class="blog-card-img">🌿</div><div class="blog-card-body"><div class="blog-category">FindAPhD</div><h3><a href="https://www.findaphd.com/blog/12493/what-its-really-like-starting-a-phd-that-saves-lives" target="_blank" rel="noopener">What it's really like starting a PhD that saves lives</a></h3><p>Reflections about doing a PhD in disaster science and engaging in international fieldwork.</p></div><div class="blog-card-meta"><span>Blog Post</span><span>3 min read</span></div></div><div class="blog-card"><div class="blog-card-img">🌿</div><div class="blog-card-body"><div class="blog-category">UN PreventionWeb</div><h3><a href="https://www.preventionweb.net/drr-community-voices/children-should-help-shape-disaster-preparedness" target="_blank" rel="noopener">Children should help shape disaster preparedness</a></h3><p>A detailed summary of findings showing that children understand and engage with disaster information.</p></div><div class="blog-card-meta"><span>Blog Post</span><span>5 min read</span></div></div><div class="blog-card"><div class="blog-card-img">🌿</div><div class="blog-card-body"><div class="blog-category">CIWEM Environment Magazine</div><h3><a href="https://www.ciwem.org/news/why-flood-evacuation-plans-must-account-for-real-human-behaviour" target="_blank" rel="noopener">Why flood evacuation plans must account for real human behaviour</a></h3><p>The case for using social data to inform evacuation behaviour modelling.</p></div><div class="blog-card-meta"><span>Article</span><span>5 min read</span></div></div><div class="blog-card"><div class="blog-card-img">🌿</div><div class="blog-card-body"><div class="blog-category">Medium</div><h3><a href="https://maciejpawlik2000.medium.com/international-phd-fieldwork-in-japan-insights-advice-6824e446ccad" target="_blank" rel="noopener">International PhD Fieldwork in Japan: Insights &amp; Advice</a></h3><p>Practical advice about organising and engaging in international fieldwork as part of a PhD.</p></div><div class="blog-card-meta"><span>Blog Post</span><span>9 min read</span></div></div><div class="blog-card"><div class="blog-card-img">🎙️</div><div class="blog-card-body"><div class="blog-category">Podcast</div><h3><a href="https://www.youtube.com/watch?v=bTgSY0OHpYg&amp;t=5s" target="_blank" rel="noopener">10 Minutes with Maciej Pawlik</a></h3><p>An informative podcast about engaging children in disaster preparedness conversations.</p></div><div class="blog-card-meta"><span>Podcast</span><span>10 min listen</span></div></div></div></section>
-<footer><div class="footer-left"><strong>Maciej Pawlik</strong> · Disaster Scientist · UCL DRDR · London<br>AFHEA · FRGS · Nature-Based Disaster Resilience · Green Learning</div><div class="footer-right">© 2026 Maciej Pawlik</div></footer>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="index.html" aria-label="Maciej Pawlik, home">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 3h6M10 3v2.2M14 3v2.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="6.5" y="5.5" width="11" height="14" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 9.5c1.6 1.6 2 3.1.9 4.6-.5.7-1.4 1-1.9.4-.8-.9-.2-2.3.3-3 .3-.6.6-1.2.7-2z" fill="#f2b957"/><path d="M8 21.5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Maciej Pawlik
+    </a>
+    <nav class="nav" aria-label="Main"><a href="about.html">About</a><a href="research.html">Research</a><a href="teaching.html">Teaching</a><a href="media.html" aria-current="page">Media</a><a href="contact.html">Contact</a></nav>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Main mobile"><a href="index.html">Home</a><a href="about.html">About</a><a href="research.html">Research</a><a href="teaching.html">Teaching</a><a href="media.html" aria-current="page">Media</a><a href="contact.html">Contact</a></nav>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero-page" aria-label="Media" style="--x:60%;--y:40%">
+  <img class="hero-bg" src="conf.pic.jpeg" alt="">
+  <img class="hero-lit" src="conf.pic.jpeg" alt="A conference stage with a slide of flood evacuation maps">
+  <div class="wrap">
+    <div>
+      <p class="hero-kicker"><span class="dot" aria-hidden="true"></span>Media &amp; Conferences</p>
+      <h1><span>Beyond the</span><span>journal article</span></h1>
+      <p class="hero-lede">Talks, outreach and writing that take disaster science to people who need it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="talks-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="talks-title">Talks &amp; conferences</h2>
+      <p>Ten talks since 2022, from Kyoto and Samos to Bali.</p>
+    </div>
+    <ol class="talks" reversed>
+      <li><span class="yr">2026</span><div><h3>Green Learning for Disaster Resilience: Preliminary Insights from Kyoto, Japan</h3><p class="where">16th IDRiM Conference, Bali, Indonesia</p></div><span class="type">Young Scientist Session</span></li>
+      <li><span class="yr">2025</span><div><h3>With nature we can tell a different story rooted in hope</h3><p class="where">UCL DRR &amp; Humanitarianism Society Innovation Evening, London</p></div><span class="type">Talk</span></li>
+      <li><span class="yr">2025</span><div><h3>Using Agent-based Modelling to Increase Predictive Capacities of Human Behaviour during Tsunami-induced Flooding Emergencies</h3><p class="where">15th IDRiM Conference, Samos Island, Greece</p></div><span class="type">Young Scientist Session</span></li>
+      <li><span class="yr">2025</span><div><h3>Children as Our Last Hope: How Creative Learning can Save the Planet</h3><p class="where">UCL Sociology Network Inaugural Conference, London</p></div><span class="type">Presentation</span></li>
+      <li><span class="yr">2024</span><div><h3>Flood, Sweat &amp; Tears</h3><p class="where">British Science Festival, London</p></div><span class="type">Presentation</span></li>
+      <li><span class="yr">2023</span><div><h3>Crafting Risk Communication in the Context of Flooding</h3><p class="where">Catalysing Connections Conference, UEL, London</p></div><span class="type">Presentation</span></li>
+      <li><span class="yr">2023</span><div><h3>Thematic Mapping for Integrated Risk Communication</h3><p class="where">13th IDRiM Conference, Roorkee, India (online)</p></div><span class="type">Young Scientist Session</span></li>
+      <li><span class="yr">2023</span><div><h3>Wider Stakeholder Perspectives in Climate Adaptation</h3><p class="where">Impact &amp; Innovation Conference, UEL, London</p></div><span class="type">Presentation</span></li>
+      <li><span class="yr">2023</span><div><h3>Developing a System of Risk Communication to Meet the Climate Action Pledge of the SDGs</h3><p class="where">6th GADRI Conference, Kyoto, Japan</p></div><span class="type">Poster</span></li>
+      <li><span class="yr">2022</span><div><h3>Risk Communication: Translating Expert Language to Non-experts</h3><p class="where">12th IDRiM Conference, Cluj-Napoca, Romania (online)</p></div><span class="type">Young Scientist</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section gl" aria-labelledby="eng-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="eng-title">Outreach &amp; engagement</h2>
+      <p>Schools, policy, politics and public conversation.</p>
+    </div>
+    <div class="two">
+      <div class="icon-grid cols-2">
+        <div><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 9.5 12 5l10 4.5-10 4.5zM6 11.3V16c3.5 2.5 8.5 2.5 12 0v-4.7M22 9.5V15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><h3>School Outreach</h3><p>Delivering hands-on workshops on nature, safety, and emergencies across London schools.</p></div></div>
+        <div><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><h3>Policy Engagement</h3><p>Providing advice on national disaster education policy, urban nature interventions, and disaster research funding.</p></div></div>
+        <div><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10v4h3l7 5V5L6 10zM16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><h3>Political Advocacy</h3><p>Supporting climate and social justice by standing in elections, campaigning &amp; advocacy.</p></div></div>
+        <div><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <div><h3>Podcast &amp; Public Writing</h3><p>Featured on Garry Turner's <em>In the Business of Healthy Masculinity</em> (Ep. 25). Commentary on science, politics, and education for general audiences.</p></div></div>
+      </div>
+      <figure class="snap" style="transform:rotate(1.4deg)">
+        <span class="tape" aria-hidden="true"></span>
+        <img src="conf.pic.jpeg" alt="A conference stage with a slide titled What did we find out" loading="lazy">
+        <figcaption>Presenting evacuation modelling findings</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="write-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="write-title">Thinking out loud</h2>
+      <p>Writing &amp; interviews: reflections and commentary on disaster science, research work, politics, and beyond.</p>
+    </div>
+    <div class="latest writing">
+      <a class="entry" href="https://theconversation.com/east-london-is-at-high-risk-of-extreme-flooding-heres-how-to-limit-the-damage-275238" target="_blank" rel="noopener">
+        <span class="kind">The Conversation</span><h3>East London is at high risk of extreme flooding. Here's how to limit the damage</h3>
+        <p>On the use of nature to protect the UK's capital from national security threats.</p><span class="meta">Article, 5 min read</span></a>
+      <a class="entry" href="https://www.findaphd.com/blog/12493/what-its-really-like-starting-a-phd-that-saves-lives" target="_blank" rel="noopener">
+        <span class="kind">FindAPhD</span><h3>What it's really like starting a PhD that saves lives</h3>
+        <p>Reflections about doing a PhD in disaster science and engaging in international fieldwork.</p><span class="meta">Blog post, 3 min read</span></a>
+      <a class="entry" href="https://www.preventionweb.net/drr-community-voices/children-should-help-shape-disaster-preparedness" target="_blank" rel="noopener">
+        <span class="kind">UN PreventionWeb</span><h3>Children should help shape disaster preparedness</h3>
+        <p>A detailed summary of findings showing that children understand and engage with disaster information.</p><span class="meta">Blog post, 5 min read</span></a>
+      <a class="entry" href="https://www.ciwem.org/news/why-flood-evacuation-plans-must-account-for-real-human-behaviour" target="_blank" rel="noopener">
+        <span class="kind">CIWEM Environment Magazine</span><h3>Why flood evacuation plans must account for real human behaviour</h3>
+        <p>The case for using social data to inform evacuation behaviour modelling.</p><span class="meta">Article, 5 min read</span></a>
+      <a class="entry" href="https://maciejpawlik2000.medium.com/international-phd-fieldwork-in-japan-insights-advice-6824e446ccad" target="_blank" rel="noopener">
+        <span class="kind">Medium</span><h3>International PhD Fieldwork in Japan: Insights &amp; Advice</h3>
+        <p>Practical advice about organising and engaging in international fieldwork as part of a PhD.</p><span class="meta">Blog post, 9 min read</span></a>
+      <a class="entry" href="https://www.youtube.com/watch?v=bTgSY0OHpYg&amp;t=5s" target="_blank" rel="noopener">
+        <span class="kind">Podcast</span><h3>10 Minutes with Maciej Pawlik</h3>
+        <p>An informative podcast about engaging children in disaster preparedness conversations.</p><span class="meta">Podcast, 10 min listen</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-id">
+      <b>Maciej Pawlik</b>, Disaster Scientist, UCL DRDR, London
+      <span>AFHEA, FRGS. Nature-based disaster resilience and Green Learning.</span>
+    </div>
+    <nav aria-label="Profiles">
+      <a href="https://scholar.google.com/citations?user=8fsXkCAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://orcid.org/0009-0009-6585-4852" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://www.linkedin.com/in/maciejpawlik2000/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://profiles.ucl.ac.uk/102104-maciej-pawlik" target="_blank" rel="noopener">UCL profile</a>
+    </nav>
+    <span class="foot-copy">© 2026 Maciej Pawlik</span>
+  </div>
+</footer>
+
 <script>
-const btn=document.getElementById('hamburger'),menu=document.getElementById('mobile-menu');
-btn.addEventListener('click',()=>{btn.classList.toggle('open');menu.classList.toggle('open')});
+/* Lantern: the lit copy of each hero photo follows the pointer; at rest it sits where the CSS puts it. */
+document.querySelectorAll('.hero').forEach(function(hero){
+  var raf=0,px=0,py=0;
+  function apply(){raf=0;hero.style.setProperty('--x',px+'px');hero.style.setProperty('--y',py+'px');}
+  function move(e){var r=hero.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;if(!raf)raf=requestAnimationFrame(apply);}
+  hero.addEventListener('pointermove',move);hero.addEventListener('pointerdown',move);
+});
+/* Close the mobile menu after choosing a link */
+document.querySelectorAll('.menu a').forEach(function(a){a.addEventListener('click',function(){a.closest('details').open=false;});});
 </script>
 </body>
 </html>
+
