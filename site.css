@@ -288,6 +288,20 @@ a.entry:hover h3{text-decoration:underline;text-decoration-color:var(--lantern);
 .my-book h3{font-size:clamp(1.6rem,3vw,2rem);margin-top:.8rem}
 .my-book p:not(.by)+p{margin-top:.8rem}
 
+/* fieldwork mind map */
+.fieldmap{width:100%;height:auto;display:block;margin-top:.5rem;font-family:var(--display)}
+.fm-lines path{fill:none;stroke:var(--root);stroke-width:2.5}
+.fm-core circle{fill:var(--canopy);stroke:var(--lantern);stroke-width:2.5}
+.fm-ct{fill:var(--mist);font-size:22px;font-weight:700;text-anchor:middle}
+.fm-cs{fill:var(--lantern);font-size:15px;font-weight:600;text-anchor:middle}
+.fm-hub circle{fill:var(--moss)}
+.fm-hub text{fill:var(--night);font-size:19px;font-weight:700;text-anchor:middle}
+.fm-leaf rect{fill:var(--canopy);stroke:var(--root);stroke-width:2}
+.fm-t{fill:var(--mist);font-size:17px;font-weight:600;text-anchor:middle}
+.fm-s{fill:var(--bark);font-size:13.5px;text-anchor:middle}
+.fieldlist{display:none}
+@media (max-width:760px){.fieldmap{display:none}.fieldlist{display:block}}
+
 @media (prefers-reduced-motion:reduce){.explore a,.explore .go-btn svg{transition:none}.explore a:hover{transform:none}}
 
 /* icon grid (about expertise, media engagement) */
@@ -405,4 +419,3 @@ a.entry:hover h3{text-decoration:underline;text-decoration-color:var(--lantern);
   html{scroll-behavior:auto}
   .site-photo img{transition:none}
 }
-
