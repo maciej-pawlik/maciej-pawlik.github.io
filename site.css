@@ -276,7 +276,7 @@ a.entry:hover h3{text-decoration:underline;text-decoration-color:var(--lantern);
 @media (max-width:1000px){.wall{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* on the horizon */
-.horizon{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,2.5vw,1.6rem)}
+.horizon{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2.5vw,1.6rem)}
 .next-step{border:1.5px dashed color-mix(in srgb,var(--lantern) 55%,var(--root));border-radius:14px;padding:clamp(1.3rem,3vw,1.8rem);display:flex;flex-direction:column;gap:.7rem;align-items:flex-start}
 .next-step h3{font-size:1.35rem;line-height:1.15}
 .next-step p{color:var(--bark);font-size:1.02rem;line-height:1.5}
