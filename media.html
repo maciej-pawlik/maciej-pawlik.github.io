@@ -144,6 +144,57 @@
     </div>
   </div>
 </section>
+
+<section class="section gl" aria-labelledby="blog-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="blog-title">From the blog</h2>
+      <p>Longer thoughts on fieldwork, disasters, research life and politics, written on Medium. The latest posts appear here automatically.</p>
+    </div>
+    <div class="latest writing" id="blog-posts">
+      <a class="entry" href="https://maciejpawlik2000.medium.com/international-phd-fieldwork-in-japan-insights-advice-6824e446ccad" target="_blank" rel="noopener">
+        <span class="kind">Mar 2026</span><h3>International PhD Fieldwork in Japan: Insights &amp; Advice</h3>
+        <p>Particularly in the context of disaster science, disasters do not exist in a vacuum.</p><span class="go">Read on Medium</span></a>
+      <a class="entry" href="https://maciejpawlik2000.medium.com/attending-international-academic-conferences-idrim-2025-science-olympics-an-insider-review-d4b2264f9a55" target="_blank" rel="noopener">
+        <span class="kind">Oct 2025</span><h3>Attending international academic conferences: IDRiM 2025 (Science Olympics), an insider review</h3>
+        <p>Between 28th September and 1st October, I spent time on Samos Island, Greece.</p><span class="go">Read on Medium</span></a>
+      <a class="entry" href="https://maciejpawlik2000.medium.com/evacuate-or-die-its-really-that-simple-b9b83e4e05fe" target="_blank" rel="noopener">
+        <span class="kind">Oct 2025</span><h3>Evacuate Or Die: It&#x27;s really that simple.</h3>
+        <p>The aftermath of the 2021 European floods revealed a crucial truth: current approaches are inadequate.</p><span class="go">Read on Medium</span></a>
+      <a class="entry" href="https://maciejpawlik2000.medium.com/children-know-more-about-disasters-than-you-think-7fbf1adb0c96" target="_blank" rel="noopener">
+        <span class="kind">Sep 2025</span><h3>Children Know More About Disasters Than You Think</h3>
+        <p>We must develop creative learning materials about disaster preparedness for children before it is too late.</p><span class="go">Read on Medium</span></a>
+      <a class="entry" href="https://maciejpawlik2000.medium.com/writing-effective-ethics-applications-ucl-risk-disaster-reduction-phd-insights-56f1d6a8c3de" target="_blank" rel="noopener">
+        <span class="kind">Sep 2025</span><h3>Writing effective ethics applications: UCL Risk &amp; Disaster Reduction PhD insights</h3>
+        <p>In a matter of minutes any life can be changed forever.</p><span class="go">Read on Medium</span></a>
+      <a class="entry" href="https://maciejpawlik2000.medium.com/designing-risk-communication-that-resonates-the-power-of-thematic-approaches-8ee155b4d6fc" target="_blank" rel="noopener">
+        <span class="kind">Sep 2025</span><h3>Designing Risk Communication that Resonates: The Power of Thematic Approaches</h3>
+        <p>My first research paper is a long one, hence this simplified blog post.</p><span class="go">Read on Medium</span></a>
+    </div>
+    <p class="after-list"><a class="btn btn-line2" href="https://maciejpawlik2000.medium.com/" target="_blank" rel="noopener">Read all posts on Medium</a></p>
+  </div>
+</section>
+<script>
+/* Pull the newest Medium posts; the cards above stay as they are if this fails. */
+(function(){
+  var box=document.getElementById('blog-posts'); if(!box||!window.fetch) return;
+  var feed='https://medium.com/feed/@maciejpawlik2000';
+  fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(feed))
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(d){
+      if(!d||d.status!=='ok'||!d.items||!d.items.length) return;
+      var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      function esc(s){var e=document.createElement('div');e.textContent=s;return e.innerHTML;}
+      function excerpt(h){var e=document.createElement('div');e.innerHTML=h;
+        var ps=e.querySelectorAll('p');for(var i=0;i<ps.length;i++){var t=ps[i].textContent.trim();if(t.length>40){var m=t.match(/^.*?[.!?](\s|$)/);return (m?m[0]:t).trim().slice(0,180);}}return '';}
+      box.innerHTML=d.items.slice(0,6).map(function(it){
+        var dt=new Date((it.pubDate||'').replace(' ','T'));
+        var when=isNaN(dt)?'':months[dt.getMonth()]+' '+dt.getFullYear();
+        return '<a class="entry" href="'+esc(it.link)+'" target="_blank" rel="noopener"><span class="kind">'+when+'</span><h3>'+esc(it.title)+'</h3><p>'+esc(excerpt(it.content||it.description||''))+'</p><span class="go">Read on Medium</span></a>';
+      }).join('');
+    }).catch(function(){});
+})();
+</script>
 <nav class="next-page" aria-label="Next page"><div class="wrap"><a href="books.html">
   <span><small>Next: The reading that shaped me</small><b>Books</b></span>
   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -215,4 +266,5 @@ document.querySelectorAll('.menu a').forEach(function(a){a.addEventListener('cli
 </script>
 </body>
 </html>
+
 
